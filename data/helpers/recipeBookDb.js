@@ -12,7 +12,8 @@ function get(table) {
 
 function getById(table, id) {
   return db(table)
-    .where({id: id});
+    .where({id: id})
+    .first();
 }
 
 function add(table, item) {

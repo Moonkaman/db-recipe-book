@@ -10,4 +10,11 @@ router.get('/', (req, res) => {
     .catch(err => res.status(500).json({errorMessage: 'Could not retrieve list of dishes at this time', error: err}));
 })
 
+router.get('/:id', (req, res) => {
+  db.getById('dishes', req.params.id)
+    .then(dish => res.status(200).json(dish))
+    .catch(err => res.status(500).json({errorMessage: 'Could not retrieve the dish at this time', error: err}));
+
+})
+
 module.exports = router;
