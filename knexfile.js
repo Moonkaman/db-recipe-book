@@ -6,6 +6,12 @@ module.exports = {
     useNullAsDefault: true,
     connection: {
       filename: './data/lambda-recipe-book.sqlite3'
+    },
+    migrations: {
+      directory: './data/migrations'
+    },
+    seeds: {
+      directory: './data/seeds'
     }
   }
 };
