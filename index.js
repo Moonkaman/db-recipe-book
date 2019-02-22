@@ -1,6 +1,9 @@
 const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
+var knexLogger = require('knex-logger');
+
+const db = require('./data/dbConfig');
 
 const server = express();
 
@@ -10,6 +13,7 @@ const recipesRouter = require('./recipes/recipesRouter');
 server.use(express.json());
 server.use(helmet());
 server.use(morgan('dev'));
+server.use(knexLogger(db));
 server.use('/api/dishes', dishesRouter);
 server.use('/api/recipes', recipesRouter);
 
